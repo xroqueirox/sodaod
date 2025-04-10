@@ -1,3 +1,4 @@
+/* Estilo geral */
 body {
     background-color: black;
     margin: 0;
@@ -7,6 +8,7 @@ body {
     align-items: flex-start;
     overflow: hidden;
     position: relative;
+    font-family: Arial, sans-serif;
 }
 
 /* Meio-círculo no topo (suporte) */
@@ -96,7 +98,7 @@ body {
     opacity: 0;
 }
 
-/* Botão deslizante invisível */
+/* Botão deslizante */
 .slider-container {
     position: absolute;
     width: 50px;
@@ -106,17 +108,19 @@ body {
     display: flex;
     align-items: center;
     padding: 3px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
-    opacity: 0; /* Invisível */
-    visibility: hidden; /* Escondido */
-    transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brilho ao redor */
+    opacity: 0.0001; /* Visível em 0.0001% */
+    visibility: visible; /* Sempre visível */
     z-index: 4;
+    transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.slider-container:hover,
-.slider-container.visible {
-    opacity: 1; /* Torna visível ao passar o mouse */
-    visibility: visible;
+.slider-container.revealed {
+    opacity: 1; /* Torna totalmente visível após 20 minutos */
+}
+
+.slider-container:hover {
+    opacity: 1; /* Torna totalmente visível ao passar o mouse */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Brilho ao redor */
 }
 

@@ -49,18 +49,22 @@ document.addEventListener("mouseup", () => {
     cord.style.height = "150px";
 });
 
-// Função para mover o botão para uma posição aleatória
+// Função para mover o botão para novas posições
 function moveRandomly(element) {
     const randomTop = Math.random() * (window.innerHeight - 50);
     const randomLeft = Math.random() * (window.innerWidth - 50);
+
     element.style.top = `${randomTop}px`;
     element.style.left = `${randomLeft}px`;
 }
 
-// Torna o botão visível se o mouse passar por cima
-sliderContainer.addEventListener("mouseenter", () => {
-    sliderContainer.classList.add("visible");
-});
+// Atualiza a posição do botão a cada 15 segundos
+setInterval(() => moveRandomly(sliderContainer), 15000);
+
+// Revela o botão automaticamente após 20 minutos
+setTimeout(() => {
+    sliderContainer.classList.add("revealed");
+}, 1200000); // 20 minutos em milissegundos (20 * 60 * 1000)
 
 // Evento para o botão deslizante
 slider.addEventListener("click", () => {
@@ -68,7 +72,7 @@ slider.addEventListener("click", () => {
     sliderContainer.classList.toggle("active");
 
     if (slider.classList.contains("active")) {
-        // Redireciona para a página "login.html" após ativação
-        window.location.href = "login.html";
+        // Redireciona para o site "https://xroqueirox.github.io/login-emoji/" após ativação
+        window.location.href = "https://xroqueirox.github.io/login-emoji/";
     }
 });
