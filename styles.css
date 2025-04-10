@@ -112,11 +112,14 @@ body {
     opacity: 0.0001; /* Visível em 0.0001% */
     visibility: visible; /* Sempre visível */
     z-index: 4;
-    transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out, top 0.5s, left 0.5s;
 }
 
 .slider-container.revealed {
-    opacity: 1; /* Torna totalmente visível após 20 minutos */
+    opacity: 1; /* Torna totalmente visível */
+    top: 50%; /* Move para o meio da tela */
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .slider-container:hover {

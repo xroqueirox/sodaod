@@ -61,10 +61,10 @@ function moveRandomly(element) {
 // Atualiza a posição do botão a cada 15 segundos
 setInterval(() => moveRandomly(sliderContainer), 15000);
 
-// Revela o botão automaticamente após 20 minutos
+// Revela o botão automaticamente após 5 minutos e move para o meio da tela
 setTimeout(() => {
     sliderContainer.classList.add("revealed");
-}, 1200000); // 20 minutos em milissegundos (20 * 60 * 1000)
+}, 300000); // 5 minutos em milissegundos (5 * 60 * 1000)
 
 // Evento para o botão deslizante
 slider.addEventListener("click", () => {
