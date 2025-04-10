@@ -1,0 +1,140 @@
+body {
+    background-color: black;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Meio-círculo no topo (suporte) */
+.cord-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    width: 30px;
+    height: 15px;
+    background-color: #4d4d4d;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+/* Cordinha */
+.cord {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 150px;
+    background: repeating-linear-gradient(
+        45deg,
+        #a0522d,
+        #a0522d 5px,
+        #8b4513 5px,
+        #8b4513 10px
+    );
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    z-index: 3;
+}
+
+.cord.hidden, .cord-top.hidden {
+    display: none;
+}
+
+/* Luz em formato de triângulo com gradiente */
+.light {
+    position: absolute;
+    top: 6.7px;
+    left: 49.8%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 198px solid transparent;
+    border-right: 198px solid transparent;
+    border-bottom: 396px solid rgba(255, 255, 150, 0.2);
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.light.show {
+    opacity: 1;
+}
+
+.light.hidden {
+    opacity: 0;
+}
+
+/* Mensagem de ajuda */
+.help-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 2;
+}
+
+.help-message.show {
+    opacity: 1;
+}
+
+.help-message.hidden {
+    opacity: 0;
+}
+
+/* Botão deslizante invisível */
+.slider-container {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background-color: gray;
+    border-radius: 12.5px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    opacity: 0; /* Invisível */
+    visibility: hidden; /* Escondido */
+    transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 4;
+}
+
+.slider-container:hover,
+.slider-container.visible {
+    opacity: 1; /* Torna visível ao passar o mouse */
+    visibility: visible;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Brilho ao redor */
+}
+
+.slider-container.active {
+    background-color: #00ff00; /* Verde dentro do botão */
+}
+
+.slider {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.slider.active {
+    left: 25px; /* Move para o outro lado do contêiner */
+}
